@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SNVIPER_Example' do
+  pod 'SNVIPER', :path => '../'
+
+  target 'SNVIPER_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end

@@ -1,0 +1,81 @@
+PODS:
+  - Alamofire (4.9.1)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - FCUUID (1.3.1):
+    - UICKeyChainStore (~> 2.1.0)
+  - HandyJSON (5.0.1)
+  - MJRefresh (3.2.2)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Result (4.1.0)
+  - Reusable (4.1.0):
+    - Reusable/Storyboard (= 4.1.0)
+    - Reusable/View (= 4.1.0)
+  - Reusable/Storyboard (4.1.0)
+  - Reusable/View (4.1.0)
+  - SNExtensions (1.1.5)
+  - SNVIPER (0.0.9):
+    - FCUUID
+    - HandyJSON
+    - MJRefresh
+    - Moya
+    - Reusable
+    - SNExtensions
+    - Toast-Swift
+    - "UITableView+FDTemplateLayoutCell"
+    - YYCache
+  - Toast-Swift (5.0.0)
+  - UICKeyChainStore (2.1.2)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
+  - YYCache (1.0.4)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase (~> 2.1.4)
+  - SNVIPER (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FBSnapshotTestCase
+    - FCUUID
+    - HandyJSON
+    - MJRefresh
+    - Moya
+    - Result
+    - Reusable
+    - SNExtensions
+    - Toast-Swift
+    - UICKeyChainStore
+    - "UITableView+FDTemplateLayoutCell"
+    - YYCache
+
+EXTERNAL SOURCES:
+  SNVIPER:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
+  SNExtensions: be02ecf94b3dd2c846b12bcbf78004c18255a51a
+  SNVIPER: 13ed0d46e91093265883ad8dbb6abb67e3924ea8
+  Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
+  UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+
+PODFILE CHECKSUM: 165eeb09174b804662b7e7889929d98bc8dae4b9
+
+COCOAPODS: 1.8.4

@@ -1,0 +1,6 @@
+framework module SNVIPER {
+  umbrella header "SNVIPER-umbrella.h"
+
+  export *
+  module * { export * }
+}
