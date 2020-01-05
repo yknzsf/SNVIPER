@@ -36,8 +36,7 @@ open class BaseCollectionAdapter<ItemType>: BaseAdapter, UICollectionViewDataSou
     /// - parameter cellClass: 注册cell必须继承自BaseCell
     
     open func registerCell<Cell: BaseCollectionViewCell<ItemType>>(_ cellClass: Cell.Type) {
-        let reuseId = Cell.reuseId
-        collectionView?.register(cellClass, forCellWithReuseIdentifier: reuseId);
+        collectionView?.register(cellWithClass: cellClass);
     }
     
     /// 获取指定位置的Cell 重用ID

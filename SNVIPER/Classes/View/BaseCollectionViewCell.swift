@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Reusable
 
 /// 可填充协议
 public protocol CollectionViewCellFillable {
@@ -15,7 +14,7 @@ public protocol CollectionViewCellFillable {
     func fillCell(item: ItemType?,indexPath: IndexPath?);
 }
 
-open class BaseCollectionViewCell<T>: UICollectionViewCell, Reusable, AddViewProtocol, CollectionViewCellFillable{
+open class BaseCollectionViewCell<T>: UICollectionViewCell, AddViewProtocol, CollectionViewCellFillable{
     
     public typealias ItemType = T;
     
@@ -25,6 +24,7 @@ open class BaseCollectionViewCell<T>: UICollectionViewCell, Reusable, AddViewPro
         super.init(frame: frame);
         addSubviews();
         addConstraints();
+        loadData();
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -39,15 +39,14 @@ open class BaseCollectionViewCell<T>: UICollectionViewCell, Reusable, AddViewPro
         
     }
     
-    open func fillCell(item: T?, indexPath: IndexPath?) {
+    open func loadData() {
         
     }
     
-    /// 取可重用id
-    public static var reuseId: String {
-        return self.className;
+    open func fillCell(item: T?, indexPath: IndexPath?) {
+        
     }
-    
+        
     open func heightForData(obj: ItemType) -> CGFloat {
         return 1.0;
     }

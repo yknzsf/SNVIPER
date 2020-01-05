@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Reusable
+import SwifterSwift
 
 open class SectionCollectionViewAdapter<SectionItemType, RowItemType>: BaseCollectionAdapter<RowItemType>,SectionViewAdapterProtocol {
 
@@ -30,8 +30,7 @@ open class SectionCollectionViewAdapter<SectionItemType, RowItemType>: BaseColle
     /// - parameter headerFooterViewClass: 注册headerFooterViewClass必须继承自BaseCollectionReusableView
     
     open func registerHeaderFooterCell<HeaderFooterView: BaseCollectionReusableView<SectionItemType>>(_ headerFooterViewClass: HeaderFooterView.Type,forSupplementaryViewOfKind: String) {
-        let reuseId = HeaderFooterView.reuseIdentifier;
-        self.collectionView?.register(headerFooterViewClass, forSupplementaryViewOfKind: forSupplementaryViewOfKind, withReuseIdentifier: reuseId);
+        self.collectionView?.register(supplementaryViewOfKind: forSupplementaryViewOfKind, withClass: headerFooterViewClass)
     }
     
     //MARK: - UICollectionViewDataSource

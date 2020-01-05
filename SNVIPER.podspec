@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SNVIPER'
-  s.version          = '0.0.9'
+  s.version          = '0.0.10'
   s.summary          = 'A short description of SNVIPER.'
   
   # This description is used to generate tags and improve search results.
@@ -46,5 +46,5 @@ TODO: Add long description of the pod here.
   s.dependency 'UITableView+FDTemplateLayoutCell'
   s.dependency 'SNExtensions'
   s.dependency 'Toast-Swift'
-  s.dependency 'Reusable'
+  s.dependency 'SwifterSwift'
 end

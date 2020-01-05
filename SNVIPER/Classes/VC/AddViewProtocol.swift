@@ -9,10 +9,12 @@
 import UIKit
 
 public protocol AddViewProtocol: class{
-    /// 添加视图
+    // 添加视图
     func addSubviews();
-    /// 添加布局
+    // 添加布局
     func addConstraints();
+    // 填充数据
+    func loadData();
 }
 
 extension AddViewProtocol {
@@ -21,6 +23,10 @@ extension AddViewProtocol {
     }
     
     func addConstraints() {
+        
+    }
+    
+    func loadData() {
         
     }
 }

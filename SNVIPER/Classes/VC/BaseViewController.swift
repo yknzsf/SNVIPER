@@ -29,6 +29,9 @@ open class BaseViewController: UIViewController,AddViewProtocol {
         
     }
     
+    public func loadData() {
+        
+    }
     open func placeDefaultBackButton() {
         if self.isPresented {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem.backBarButtonItem(target: self, action: #selector(onBack), imageName: "nav_btn_close");

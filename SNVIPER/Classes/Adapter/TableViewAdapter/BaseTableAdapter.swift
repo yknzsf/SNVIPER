@@ -37,8 +37,7 @@ open class BaseTableAdapter<ItemType>: BaseAdapter,UITableViewDataSource, UITabl
     /// - parameter cellClass: 注册cell必须继承自BaseCell
     
     open func registerCell<Cell: BaseTableViewCell<ItemType>>(_ cellClass: Cell.Type) {
-        let reuseId = Cell.reuseId
-        tableView?.register(cellClass, forCellReuseIdentifier: reuseId);
+        tableView?.register(cellWithClass: cellClass);
     }
     
     /// 获取指定位置的Cell 重用ID

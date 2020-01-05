@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Reusable
 
 public protocol CollectionReusableViewFillable {
     
@@ -15,7 +14,7 @@ public protocol CollectionReusableViewFillable {
     func fillCollectionReusableView(item: ItemType?, kind: String, section: Int);
 }
 
-open class BaseCollectionReusableView<T>: UICollectionReusableView, Reusable, AddViewProtocol, CollectionReusableViewFillable{
+open class BaseCollectionReusableView<T>: UICollectionReusableView, AddViewProtocol, CollectionReusableViewFillable{
     
     public typealias ItemType = T;
     
@@ -23,6 +22,7 @@ open class BaseCollectionReusableView<T>: UICollectionReusableView, Reusable, Ad
         super.init(frame: frame)
         addSubviews();
         addConstraints();
+        loadData();
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -38,6 +38,10 @@ open class BaseCollectionReusableView<T>: UICollectionReusableView, Reusable, Ad
     }
     
     open func addConstraints() {
+        
+    }
+    
+    open func loadData() {
         
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Reusable
 
 /// 可填充协议
 public protocol TableViewCellFillable {
@@ -15,7 +14,7 @@ public protocol TableViewCellFillable {
     func fillCell(item: ItemType?,indexPath: IndexPath?);
 }
 
-open class BaseTableViewCell<T>: UITableViewCell,Reusable,AddViewProtocol,TableViewCellFillable {
+open class BaseTableViewCell<T>: UITableViewCell,AddViewProtocol,TableViewCellFillable {
 
     public typealias ItemType = T;
     
@@ -28,6 +27,7 @@ open class BaseTableViewCell<T>: UITableViewCell,Reusable,AddViewProtocol,TableV
         
         addSubviews();
         addConstraints();
+        loadData();
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -54,17 +54,15 @@ open class BaseTableViewCell<T>: UITableViewCell,Reusable,AddViewProtocol,TableV
 
     }
     
+    open func loadData() {
+        
+    }
     // MARK: TableViewCellFillable
     
     open func fillCell(item: ItemType?,indexPath: IndexPath?) {
         
     }
-    
-    /// 取可重用id
-    public static var reuseId: String {
-        return self.className;
-    }
-    
+        
     open class func heightForData(obj: ItemType?) -> CGFloat {
         return 1.0;
     }
