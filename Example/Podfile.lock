@@ -11,7 +11,7 @@ PODS:
     - Result (~> 4.1)
   - Result (4.1.0)
   - SNExtensions (1.1.6)
-  - SNVIPER (0.0.10):
+  - SNVIPER (0.0.11):
     - FCUUID
     - HandyJSON
     - MJRefresh
@@ -77,7 +77,7 @@ SPEC CHECKSUMS:
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SNExtensions: 8a608c5a5e9fd64ec759bb17c18596c8ec002051
-  SNVIPER: dd796b53e5118df5cb8f382666f77f8bab4b7f31
+  SNVIPER: a0f9e7d3f63a09e0b9ff8660703b041e4d2ff6f8
   SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f

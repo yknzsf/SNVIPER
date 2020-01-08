@@ -17,6 +17,7 @@ public protocol CollectionReusableViewFillable {
 open class BaseCollectionReusableView<T>: UICollectionReusableView, AddViewProtocol, CollectionReusableViewFillable{
     
     public typealias ItemType = T;
+    open var delegate: TouchUpDelegate?;
     
     override public init(frame: CGRect) {
         super.init(frame: frame)

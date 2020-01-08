@@ -20,8 +20,7 @@ open class SectionTableViewAdapter<SectionItemType, RowItemType>: BaseTableAdapt
     /// - parameter headerFooterViewClass: 注册headerFooterViewClass必须继承自ZHBaseTableViewHeaderFooterView
     
     open func registerHeaderFooterCell<HeaderFooterView: BaseTableViewHeaderFooterView<SectionItemType>>(_ headerFooterViewClass: HeaderFooterView.Type) {
-        let reuseId = HeaderFooterView.reuseId
-        tableView?.register(headerFooterViewClass, forHeaderFooterViewReuseIdentifier: reuseId);
+        tableView?.register(headerFooterViewClassWith: headerFooterViewClass);
     }
     
     open func reuseIdForHeaderView(_ section: Int) -> String {

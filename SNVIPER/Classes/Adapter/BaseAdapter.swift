@@ -11,8 +11,4 @@ import UIKit
 open class BaseAdapter: NSObject, TouchUpDelegate {
     
     open weak var delegate: TouchUpDelegate?;
-    
-    open func touchUpInside(cell: Any? = nil, action: Int? = nil, object: Any? = nil, indexPath: IndexPath? = nil) {
-        
-    }
 }

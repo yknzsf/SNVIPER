@@ -8,6 +8,18 @@
 
 import Foundation
 
-public protocol TouchUpDelegate : class { //cell上控件点击,adapter实现
-    func touchUpInside(cell: Any?, action: Int?, object: Any?, indexPath: IndexPath?);
+public protocol TouchUpDelegate : class {
+    func touchUpInside(_ view: UIView?, action: Int?, section: Int?, object: Any?);
+    func touchUpInside(_ view: UIView?, action: Int?, indexPath: IndexPath?, object: Any?);
+}
+
+public extension TouchUpDelegate {
+    
+    func touchUpInside(_ view: UIView?, action: Int?, section: Int?, object: Any?) {
+
+    }
+    
+    func touchUpInside(_ view: UIView?, action: Int?, indexPath: IndexPath?, object: Any?) {
+        
+    }
 }

@@ -34,7 +34,8 @@ open class RowTableViewAdapter<ItemType>: BaseTableAdapter<ItemType>,RowViewAdap
     }
 
     open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.touchUpInside(cell: nil, action: nil, object: rowItem(row: indexPath.row), indexPath: indexPath);
+        
+        self.delegate?.touchUpInside(nil, action: nil, indexPath: indexPath, object: rowItem(row: indexPath.row))
     }
     
     public func reloadData() {

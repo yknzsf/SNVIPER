@@ -34,7 +34,7 @@ open class BaseTableViewCell<T>: UITableViewCell,AddViewProtocol,TableViewCellFi
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setBottomLine(left: Float = 0.0,right: Float = 0.0,height: Float,color: UIColor) {
+    public func setBottomLine(left: Float = 0.0,right: Float = 0.0,height: Float,color: UIColor) {
         self.bottomLine.isHidden = false;
         self.bottomLine.backgroundColor = color;
         self.contentView.bringSubviewToFront(self.bottomLine);

@@ -13,7 +13,7 @@ public protocol ViewFillable {
     func fillView(item: ItemType?);
 }
 
-open class BaseView<T>: UIView,AddViewProtocol,ViewFillable {
+open class BaseView<T>: UIControl,AddViewProtocol,ViewFillable {
 
     public typealias ItemType = T;
     
