@@ -9,7 +9,6 @@
 import UIKit
 import HandyJSON
 import Moya
-import Result
 
 public class HandleNetworkData<T: BaseModelProtocol> {
     

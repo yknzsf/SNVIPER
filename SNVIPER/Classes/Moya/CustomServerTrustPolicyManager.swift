@@ -8,11 +8,11 @@
 
 import UIKit
 import Alamofire
-
-class CustomServerTrustPolicyManager: ServerTrustPolicyManager {
+import Moya
+class CustomServerTrustPolicyManager: Alamofire.Session {
     
-    override func serverTrustPolicy(forHost host: String) -> ServerTrustPolicy? {
-        let policy: ServerTrustPolicy? = .disableEvaluation;
-        return policy
-    }
+//    override func serverTrustPolicy(forHost host: String) -> ServerTrustPolicy? {
+//        let policy: ServerTrustPolicy? = .disableEvaluation;
+//        return policy
+//    }
 }

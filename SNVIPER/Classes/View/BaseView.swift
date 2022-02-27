@@ -17,7 +17,7 @@ open class BaseView<T>: UIControl,AddViewProtocol,ViewFillable {
 
     public typealias ItemType = T;
     
-    lazy var bottomLine: UIView = UIView();//底部线
+    public lazy var bottomLine: UIView = UIView();//底部线
     
     public override init(frame: CGRect) {
         super.init(frame: frame);
@@ -31,7 +31,7 @@ open class BaseView<T>: UIControl,AddViewProtocol,ViewFillable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setBottomLine(left: Float = 0.0,right: Float = 0.0,height: Float,color: UIColor) {
+    public func setBottomLine(left: Float = 0.0,right: Float = 0.0,height: Float,color: UIColor) {
         self.bottomLine.isHidden = false;
         self.bottomLine.backgroundColor = color;
         self.bringSubviewToFront(self.bottomLine);

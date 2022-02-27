@@ -16,12 +16,12 @@ public class NetworkReachabilityStatusManager {
     
     private init() {
         
-        manager?.listener = { status in
-            print("Network Status Changed: \(status)")
-        }
+
     }
 
     public func startListening() {
-        manager?.startListening();
+        manager?.startListening(onUpdatePerforming: { (status) in
+            print("Network Status Changed: \(status)")
+        })
     }
 }

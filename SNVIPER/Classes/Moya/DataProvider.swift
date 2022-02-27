@@ -8,7 +8,6 @@
 
 import UIKit
 import Moya
-import Result
 import HandyJSON
 
 let NetWorkDidConnectNotifacation = "NetWorkDidConnectNotifacation";
@@ -35,16 +34,19 @@ extension Response {
 
 open class DataProvider<Target: TargetType>: MoyaProvider<Target> {
 
-    public override init(endpointClosure: @escaping EndpointClosure = DataProvider.endpointMapping,
-                            requestClosure: @escaping RequestClosure = DataProvider<Target>.requestMapping,
-                            stubClosure: @escaping StubClosure = DataProvider.neverStub,
-                            callbackQueue:DispatchQueue? = nil,
-                            manager: Manager = DataProvider<Target>.alamofireManager(),
-                            plugins: [PluginType] = [],
-                            trackInflights: Bool = false) {
-        super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, callbackQueue: callbackQueue, manager: manager, plugins: plugins, trackInflights: trackInflights);
-    }
+//    public override init(endpointClosure: @escaping EndpointClosure = DataProvider.endpointMapping,
+//                            requestClosure: @escaping RequestClosure = DataProvider<Target>.requestMapping,
+//                            stubClosure: @escaping StubClosure = DataProvider.neverStub,
+//                            callbackQueue:DispatchQueue? = nil,
+//                            manager: Manager = DataProvider<Target>.alamofireManager(),
+//                            plugins: [PluginType] = [],
+//                            trackInflights: Bool = false) {
+//        super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, callbackQueue: callbackQueue, manager: manager, plugins: plugins, trackInflights: trackInflights);
+//    }
     
+    public override init(endpointClosure: @escaping MoyaProvider<Target>.EndpointClosure = DataProvider.endpointMapping, requestClosure: @escaping DataProvider<Target>.RequestClosure = DataProvider<Target>.requestMapping, stubClosure: @escaping DataProvider<Target>.StubClosure = DataProvider.neverStub, callbackQueue: DispatchQueue? = nil, session: Session = DataProvider<Target>.alamofireManager(), plugins: [PluginType] = [], trackInflights: Bool = false) {
+        
+    }
     private func targetError(completion: ((Result<Moya.Response, MoyaError>?) -> Void)?) -> Cancellable? {
         let message = "target error";
         let error = MoyaError.underlying(NSError(domain: message, code: NSURLErrorUnknown, userInfo: nil), nil)
@@ -113,30 +115,35 @@ public extension MoyaProvider {
         }
     }
     
-    final class func alamofireManager() -> Manager {
+    final class func alamofireManager() -> Session {
         
-        let serverTrustPolicyManager = CustomServerTrustPolicyManager(policies: ["*": .disableEvaluation]);
+        let configuration = URLSessionConfiguration.default
+        configuration.headers = .default
+
+        return Session(configuration: configuration, startRequestsImmediately: false);
         
-        let configuration = URLSessionConfiguration.default;
-        
-        let manager = Manager(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager);
-        manager.delegate.sessionDidReceiveChallenge = CertificateTrustUtil.alamofireCertificateTrust;
-        manager.startRequestsImmediately = false;
-        manager.delegate.dataTaskDidReceiveResponseWithCompletion = { session, dataTask, response, completionHandler in
-            
-            if(NetworkReachabilityStatusManager.sharedInstance.manager?.isReachable == true) {
-                NotificationCenter.default.postOnMainThread(name: NSNotification.Name(rawValue: NetWorkDidConnectNotifacation), object: nil);
-            }
-            let urlResponse = response as? HTTPURLResponse;
-            let marks: String = urlResponse?.allHeaderFields["marks"] as! String? ?? "";
-            
-            if marks.count == 8 {
-                NotificationCenter.default.postOnMainThread(name: NSNotification.Name(rawValue: NSNotificationCenterWithMarks), object: marks);
-            }
-            
-            completionHandler(.allow);
-        }
-        return manager
+//        let serverTrustPolicyManager = CustomServerTrustPolicyManager(policies: ["*": .disableEvaluation]);
+//
+//        let configuration = URLSessionConfiguration.default;
+//
+//        let manager = Manager(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager);
+//        manager.delegate.sessionDidReceiveChallenge = CertificateTrustUtil.alamofireCertificateTrust;
+//        manager.startRequestsImmediately = false;
+//        manager.delegate.dataTaskDidReceiveResponseWithCompletion = { session, dataTask, response, completionHandler in
+//
+//            if(NetworkReachabilityStatusManager.sharedInstance.manager?.isReachable == true) {
+//                NotificationCenter.default.postOnMainThread(name: NSNotification.Name(rawValue: NetWorkDidConnectNotifacation), object: nil);
+//            }
+//            let urlResponse = response as? HTTPURLResponse;
+//            let marks: String = urlResponse?.allHeaderFields["marks"] as! String? ?? "";
+//
+//            if marks.count == 8 {
+//                NotificationCenter.default.postOnMainThread(name: NSNotification.Name(rawValue: NSNotificationCenterWithMarks), object: marks);
+//            }
+//
+//            completionHandler(.allow);
+//        }
+//        return manager
     }
     
     final class func defaultPlugins() -> [PluginType] {
